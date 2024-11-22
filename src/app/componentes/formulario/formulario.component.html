@@ -1,0 +1,29 @@
+     <!--<div class="container">
+        <h2>Login</h2>
+        <form (submit)="onLogin(usuario.value, contrasenya.value)">
+            <label for="username">Usuario:</label>
+            <input #usuario type="text" id="username" name="username" required>
+  
+            <label for="password">Contraseña:</label>
+            <input #contrasenya type="password" id="password" name="password" required>
+  
+            <input type="submit" value="Iniciar sesión">
+        </form>
+    </div>-->
+
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <form (submit)="onLogin(usuario.value, contrasenya.value)" class="bg-white p-4 rounded bg-white shadow" style="width: 300px;">
+          <div class="mb-3">
+            <label for="username" class="form-label">Usuario: </label>
+            <input type="text" #usuario class="form-control" id="username" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Contraseña: </label>
+            <input type="password" #contrasenya class="form-control" id="password">
+            <div id="passwordHelp" class="form-text">Nunca compartiremos tu contraseña con nadie más.</div>
+          </div>
+          <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        </form>
+      </div>
+      
+      
