@@ -1,15 +1,22 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import 'animate.css';
+import { MyServiceService } from '../../services/my-service-service.service';
 
 @Component({
   selector: 'app-galeria',
   standalone: true,
   templateUrl: './galeria.component.html',
   imports: [CommonModule],
+  providers :[MyServiceService],
   styleUrls: ['./galeria.component.css']
 })
 export class GaleriaComponent {
+
+  weatherData: any;
+  city: string = 'Madrid'; // Cambia la ciudad según lo que quieras buscar
+
+
   // Arreglo de objetos con los datos de las ciudades
   ciudades = [
     {
@@ -33,4 +40,19 @@ export class GaleriaComponent {
       imagen: 'https://th.bing.com/th/id/R.0faf7e911308759d6b2249ac6ecc0155?rik=Ngcl8k4U0ghavg&pid=ImgRaw&r=0'
     }
   ];
+
+  constructor(private weatherService: MyServiceService) { }
+
+  ngOnInit() {
+    this.getWeather();
+  }
+  // Método para obtener el clima
+  getWeather() {
+    this.weatherService.getWeatherByCity(this.city).subscribe(data => {
+      this.weatherData = data;
+      console.log(this.weatherData)
+      console.log(this.weatherData.main.temp)
+    });
+  }
+
 }

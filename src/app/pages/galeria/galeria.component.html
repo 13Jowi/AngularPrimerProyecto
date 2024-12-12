@@ -3,11 +3,12 @@
 <div class="container">
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
     <div class="col" *ngFor="let ciudad of ciudades">
-      <div class="card animate__animated animate__fadeInTopLeft animate__delay-1s">
+      <div class="card animate__animated animate__zoomIn animate__delay-1s">
         <img [src]="ciudad.imagen" alt="{{ciudad.nombre}}" class="card-img-top">
         <div class="card-body">
           <h5 class="card-title">{{ciudad.nombre}}</h5>
           <p class="card-text">{{ciudad.descripcion}}</p>
+          <p>La temperatura es de <strong>{{this.weatherData.main.temp}}</strong></p>
         </div>
       </div>
     </div>
